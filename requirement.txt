@@ -1,0 +1,78 @@
+asgiref==3.7.2
+Django~=4.2.7
+sqlparse==0.4.4
+Pillow==10.1.0
+flower==2.0.1
+celery==5.3.5
+stripe==7.4.0
+WeasyPrint==56.1
+ 
+ 
+
+
+ Run Rabbitmq
+ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+ Open http://127.0.0.1:15672 in your browser. You will see login screen
+ username: guest 
+ password: guest
+
+
+
+ Run Celery
+celery --app=myshop worker -l INFO
+CTR C will terminate 
+https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html
+
+
+
+
+
+
+
+ Run:  stripe login 
+ stripe login
+ stripe listen --forward-to localhost:8000/payment/webhook/
+
+
+Stripe 
+pip install stripe 
+
+https://dashboard.stripe.com/test/apikeys
+
+DEMO Card: 4242 4242 4242 4242 
+cvc: any 3 digit
+Expire date: any future
+
+
+
+STRIPE CLI
+I also uses Stripe CLI to be able to test webhook
+Stripe CLI is use to test and manage stripe directly from shell. 
+
+to Install 
+brew install stripe/stripe-cli/stripe
+
+To login
+run: stripe login 
+
+
+run: stripe listen --forward-to localhost:8000/payment/webhook/
+
+open: 
+
+
+
+
+installation of WeasyPrint 
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html
+
+
+brew install weasyprint
+
+pip install weasyPrint==56.1
+
+
+
+
+for sebding email rebust article here
+https://mailtrap.io/blog/django-send-email/#How-to-send-multiple-emails
